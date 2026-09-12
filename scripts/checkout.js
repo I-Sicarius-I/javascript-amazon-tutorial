@@ -2,7 +2,7 @@ import {cart, removeFromCart as deleteItem} from '../data/cart.js'
 import {products} from '../data/products.js'
 import { formatCurrency } from './utils/money.js';
 
-let cartHTML;
+let cartHTML = "";
 
 cart.forEach((cartItem) => {
     const cartID = cartItem.productId;
@@ -15,7 +15,7 @@ cart.forEach((cartItem) => {
     })
 
 
-    cartHTML += `<div class="cart-item-container js-cart-item-container-${cartItem.productId}">
+    cartHTML += `<div class="cart-item-container js-cart-item-container-${cartID}">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
