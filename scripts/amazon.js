@@ -1,6 +1,6 @@
 import {addToCart, cart} from '../data/cart.js'
 import {products} from '../data/products.js'
-import { formatCurrency } from './utils/money.js'
+import formatCurrency from './utils/money.js'
 
 const container = document.querySelector('.js-products-grid')
 let productHTML = ''
