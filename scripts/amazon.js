@@ -1,9 +1,19 @@
-import {cart} from '../data/cart.js'
+import {addToCart, cart} from '../data/cart.js'
 import {products} from '../data/products.js'
 
 const container = document.querySelector('.js-products-grid')
 let productHTML = ''
 
+function updateCartQuantity(){
+    
+        let cartQuantity = 0;
+
+        cart.forEach((item) => {
+            cartQuantity += item.quantity;
+        })
+
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
 products.forEach((product) => {
     productHTML += `<div class="product-container">
           <div class="product-image-container">
@@ -59,34 +69,12 @@ products.forEach((product) => {
 container.innerHTML = productHTML
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', () => {
         
         const id = button.dataset.productId;
-        let matchingItem;
-
-        cart.forEach((product) => {
-            if(product.productId === id){
-                product.quantity += 1
-                matchingItem = product
-            }
-        })
         
-        if(typeof matchingItem === 'undefined')
-        {
-            cart.push({
-                productId: id,
-                quantity: 1
-            });
-        }
-
-        let cartQuantity = 0;
-
-        cart.forEach((item) => {
-            cartQuantity += item.quantity;
-        })
-
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-        // console.log(cart)
+        addToCart(id)
+        updateCartQuantity()
     })
 });
 
