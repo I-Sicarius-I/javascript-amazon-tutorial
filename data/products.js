@@ -750,9 +750,10 @@ export function loadProducts(renderFun){
     products = JSON.parse(xhr.response).map((productDetails) => {
       return productDetails.type === 'clothing' ? new Clothing(productDetails) : new Product(productDetails) 
     })
-
+    console.log('load products')
     renderFun();
   })
+  
 
   xhr.open('GET', 'https://supersimplebackend.dev/products')
   xhr.send();
