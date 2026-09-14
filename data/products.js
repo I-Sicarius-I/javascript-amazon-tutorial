@@ -70,7 +70,7 @@ class Clothing extends Product{
   }
   const obj2 = {
     method(){
-      console.log(this) <-- logs "obj2"
+      console.log(this) <-- logs obj2
     }
   }
 
