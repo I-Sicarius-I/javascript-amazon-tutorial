@@ -54,6 +54,28 @@ class Clothing extends Product{
       `;
     }
 }
+/*
+  function logThis(){
+    console.log(this)
+  }
+  logThis.call('hello') <-- sets "this" pointer to "hello"
+  
+  arrow functions don't change value of this!!!
+
+  this <-- undefined
+  const obj1 = {
+    method: () => {
+      console.log(this) <-- undefined (arrow function DOES NOT CHANGE this, to not accidently overwrite it)
+    }
+  }
+  const obj2 = {
+    method(){
+      console.log(this) <-- logs "obj2"
+    }
+  }
+
+
+*/
 
 export const products = [
   {
