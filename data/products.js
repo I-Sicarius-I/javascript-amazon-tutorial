@@ -756,6 +756,7 @@ export function loadProductsFetch(){
       return productDetails.type === 'clothing' ? new Clothing(productDetails) : new Product(productDetails) 
     })
   })
+  console.log('loadProducts')
 
   return promise
 }
