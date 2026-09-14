@@ -755,8 +755,11 @@ export function loadProductsFetch(){
       
       return productDetails.type === 'clothing' ? new Clothing(productDetails) : new Product(productDetails) 
     })
+    console.log('loadProducts')
   })
-  console.log('loadProducts')
+  // .catch(() => {
+  //   console.log('Unexpected error. Please try again later.')
+  // })
 
   return promise
 }
@@ -771,7 +774,10 @@ export function loadProducts(renderFun){
     console.log('load products')
     renderFun();
   })
-  
+  //error callback
+  xhr.addEventListener('error', (error) => {
+    console.log('Unexpected error. Please try again later.')
+  })
 
   xhr.open('GET', 'https://supersimplebackend.dev/products')
   xhr.send();
