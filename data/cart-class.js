@@ -1,14 +1,14 @@
 class Cart{
-    cartItems = undefined;
-    localStorageKey = undefined
+    cartItems;
+    #localStorageKey; //private property
 
     constructor(localStorageKey = 'cart-oop'){
-        this.localStorageKey = localStorageKey;
-        this.cartItems = [];
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage(){
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage(){
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
 
         if (!this.cartItems){
             this.cartItems = [{
@@ -80,14 +80,4 @@ class Cart{
     }
 }
 
-const cart = new Cart();
-const businessCart = new Cart('business-cart');
-
-
-cart.loadFromStorage()
-businessCart.loadFromStorage()
-cart.addToCart('83d4ca15-0f35-48f5-b7a3-1ea210004f2e')
-console.log(cart)
-console.log(businessCart)
-console.log(businessCart instanceof Cart)
 export default cart

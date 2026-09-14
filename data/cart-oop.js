@@ -79,14 +79,4 @@ function Cart(localStorageKey = 'cart-oop'){
     return cart;
 }
 
-const cart = Cart();
-const businessCart = Cart('business-cart');
-
-
-cart.loadFromStorage()
-businessCart.loadFromStorage()
-cart.addToCart('83d4ca15-0f35-48f5-b7a3-1ea210004f2e')
-console.log(cart)
-console.log(businessCart)
-
 export default cart
