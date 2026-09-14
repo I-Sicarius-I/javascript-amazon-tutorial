@@ -58,7 +58,6 @@ export function updateDeliveryOption(productId, deliveryOptionId){
 
     cart.forEach((cartItem) => {
         if(cartItem.productId === productId){
-            cartItem.quantity += 1
             matchingItem = cartItem
         }
     })

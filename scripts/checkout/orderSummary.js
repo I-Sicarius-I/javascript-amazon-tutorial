@@ -3,6 +3,7 @@ import {getProduct} from '../../data/products.js'
 import formatCurrency from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
 import deliveryOptions, {getDeliveryOption} from '../../data/deliveryOption.js';
+import renderPaymentSummary from './paymentSummary.js';
 
 
 function renderOrderSummary(){
@@ -101,7 +102,8 @@ function renderOrderSummary(){
 
             deleteItem(productId)
 
-            document.querySelector(`.js-cart-item-container-${productId}`).remove()
+            document.querySelector(`.js-cart-item-container-${productId}`).remove();
+            renderPaymentSummary();
         })
     });
 
@@ -110,6 +112,7 @@ function renderOrderSummary(){
             const {productId, deliveryOptionId} = element.dataset
 
             updateDeliveryOption(productId, deliveryOptionId);
+            renderPaymentSummary();
             renderOrderSummary();
         });
     })
